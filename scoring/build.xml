@@ -175,6 +175,9 @@
 		<mkdir dir="${dir.coverage}" />
 
 		<cobertura-instrument datafile="${dir.coverage}/cobertura.ser">
+                        <auxClasspath>
+                                <path refid="application.classpath" />
+                        </auxClasspath>
 			<fileset dir="${dir.classes}">
 				<include name="**/*.class" />
 			</fileset>
@@ -236,6 +239,12 @@
 		<echo message="Long version ${app.version.long} short version ${app.version.short}"/>
 
 	</target>
+<pathconvert property="expand-auxpath" refid="application.classpath"/>
+
+  <target name="coverage.test">
+    <echo message="${expand-auxpath}"
+          file="auxPath.txt"/>
+  </target>
 
 
 	<!--
