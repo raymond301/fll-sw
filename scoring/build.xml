@@ -176,7 +176,7 @@
 
 		<cobertura-instrument datafile="${dir.coverage}/cobertura.ser">
                         <auxClasspath>
-                                <path refid="application.classpath" />
+                                <path refid="compile.classpath" />
                         </auxClasspath>
 			<fileset dir="${dir.classes}">
 				<include name="**/*.class" />
